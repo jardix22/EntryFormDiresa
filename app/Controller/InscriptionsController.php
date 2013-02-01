@@ -9,6 +9,7 @@ class InscriptionsController extends AppController
 	public function add()
 	{
 		if ($this->request->is('post')) {
+			/*
 			if ($this->Inscription->saveAssociated($this->request->data)) {
 				$this->Session->setFlash(
 					array('message' => 'Su inscripcion ha sido realizada exitosamente.','type' => 'alert-success'),
@@ -19,7 +20,7 @@ class InscriptionsController extends AppController
 					array('message' => 'Ha ocurrido un error, vuelve a intentarlo.','type' => 'alert-error'),
 					'bootstrap_message'
 				);
-			}
+			}*/
 		}
 	}
 
