@@ -1,6 +1,38 @@
 $(document).ready(function () {
 	
 
+	$('#inscription-form').validate({
+		rules: {
+			"data[Person][email]": {
+				required: true,
+				email: true
+			},
+			"data[Person][document]": {
+				required: true,
+				number: true,
+				minlength: 8
+			},
+			"data[Student][cellphone]": {
+				required: true,
+				number: true
+			},
+			"data[Student][birtdate]": {
+				required: true,
+				date: true	
+			},
+			"data[Person][cellphone]": {
+				required: true,
+				number: true,
+				minlength: 8
+			},
+			"data[Inscription][establishment_id]": {
+				required: true
+				
+			}
+		}
+	});
+
+		/*
 	$('#new-student').validate({
 		rules: {
 			"data[Student][email]": {
@@ -22,18 +54,24 @@ $(document).ready(function () {
 			"data[LaborState][telephone]": {
 				required: true,
 				number: true
-			}
-		},
+			},
+			
+		}
+
+		,
 		highlight: function(label) {
 			$(label).closest('.control-group').addClass('error');
-		},
+		}
+
+		,
 		success: function(label) {
 			label
-				.text('OK!').addClass('valid')
+				//.text('OK!').addClass('valid')
 				.closest('.control-group').addClass('success');
 		}
 	});
 });
+		*/
 
 /*
 
@@ -64,4 +102,5 @@ success: function(label) {
 		.text('OK!').addClass('valid')
 		.closest('.control-group').addClass('success');
 }
-});*/
+*/
+});

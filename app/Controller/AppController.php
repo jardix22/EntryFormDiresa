@@ -41,7 +41,8 @@ class AppController extends Controller {
 			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
 			'authError' => 'You cant access that page',
 			'authorize' => array('Controller')
-		)
+		),
+		'RequestHandler'
 	);
 
 	public $layout = 'bootstrap/default';

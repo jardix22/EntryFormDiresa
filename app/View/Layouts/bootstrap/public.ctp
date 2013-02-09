@@ -13,17 +13,16 @@
 		<?php echo $this->Html->css('/theme/css/master'); ?>
 
 		
-		<?php echo $this->Html->script('jquery-1.8.2'); ?>
-		<?php echo $this->Html->script('jquery.validate.min'); ?>
-		<?php echo $this->Html->script('/bootstrap/js/es/validate'); ?>
+		<?php echo $this->Html->script('/plugins/jquery/jquery-1.8.2'); ?>
+		<?php echo $this->Html->script('/plugins/validate/jquery.validate.min'); ?>
+		<?php echo $this->Html->script('/plugins/validate/validate'); ?>
 		
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap.min'); ?>
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap-datepicker'); ?>
 		
 
 
-		<?php echo $this->Html->script('/js/me/tools'); ?>
-
+		<?php echo $this->Html->script('/theme/js/tools'); ?>
 		<?php echo $this->Html->script('/theme/js/validation'); ?>
 
 	</head>
