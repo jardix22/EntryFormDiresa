@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
 * EstablishmentsController
 */
@@ -29,12 +29,10 @@ class EstablishmentsController extends AppController
 
 		$data = array();
 		foreach ($establishments as $key => $establishment) {
-			//if ( count($establishment['Vacancy']) > 0) {
-				$data[$key] = array(
-					'id' => $establishment['Establishment']['id'],
-					'name' => $establishment['Establishment']['name']			
-				);
-			//}
+			$data[$key] = array(
+				'id' => $establishment['Establishment']['id'],
+				'name' => $establishment['Establishment']['name']			
+			);
 		}
 
 		$this->set('establishments', $data);
