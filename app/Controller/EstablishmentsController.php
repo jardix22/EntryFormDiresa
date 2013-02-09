@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+	<?php
+>>>>>>> 818d509f7600479335f5b8bc372283dbf0cbefa1
 /**
 * EstablishmentsController
 */
@@ -29,12 +33,19 @@ class EstablishmentsController extends AppController
 
 		$data = array();
 		foreach ($establishments as $key => $establishment) {
+<<<<<<< HEAD
 			//if ( count($establishment['Vacancy']) > 0) {
 				$data[$key] = array(
 					'id' => $establishment['Establishment']['id'],
 					'name' => $establishment['Establishment']['name']			
 				);
 			//}
+=======
+			$data[$key] = array(
+				'id' => $establishment['Establishment']['id'],
+				'name' => $establishment['Establishment']['name']			
+			);
+>>>>>>> 818d509f7600479335f5b8bc372283dbf0cbefa1
 		}
 
 		$this->set('establishments', $data);
