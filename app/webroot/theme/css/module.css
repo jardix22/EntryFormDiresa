@@ -3,6 +3,7 @@
 /* Logo Module */
 .logo-wrap{
 	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 /* header toolbar Module */
@@ -212,6 +213,6 @@
 	padding-top: 0px;
 }
 
-.center{
+tbody tr td.center{
 	text-align: center;
 }
