@@ -201,3 +201,10 @@
 	background-color: #fff;
 	padding: 3px 5px;
 }
+/*detail table module*/
+.detail-table tbody tr td:first-child{
+	color: #777;
+	font-weight: bold;
+	width: 300px;
+	
+}
