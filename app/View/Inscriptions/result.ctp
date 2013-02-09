@@ -5,7 +5,7 @@
 		<div class="pull-right">
 			<div class="tool-buttons-content">
 				<div class="tool-button">
-					<a class="toolTips" href=<?php echo $this->Html->url(array("action" => "resultPdf", base64_encode($inscription['Inscription']['id']))); ?> target="_blank" rel="tooltip" data-placement="top" data-original-title="PDF" > PDF <i class="icon-file"></i></a>
+					<a class="btn" href=<?php echo $this->Html->url(array("action" => "resultPdf", base64_encode($inscription['Inscription']['id']))); ?> target="_blank" rel="tooltip" data-placement="top" data-original-title="PDF" > PDF <i class="icon-file"></i></a>
 				</div>
 			</div>
 		</div>
