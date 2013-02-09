@@ -1,5 +1,22 @@
+
 $(document).ready(function () {
 	
+	$.validator.addMethod("uniqueUserName", function(value, element) {
+	$.ajax({
+			type: "POST",
+			 url: "php/get_save_status.php",
+			data: "checkUsername="+value,
+			dataType:"html",
+		 success: function(msg)
+		 {
+				// if the user exists, it returns a string "true"
+				if(msg == "true")
+					 return false;  // already exists
+				return true;      // username is free to use
+		 }
+		}
+	)}, "Username is Already Taken");
+
 
 	$('#inscription-form').validate({
 		rules: {
@@ -77,22 +94,22 @@ $(document).ready(function () {
 
 $('#contact-form').validate({
 rules: {
-  name: {
-    minlength: 2,
-    required: true
-  },
-  email: {
-    required: true,
-    email: true
-  },
-  subject: {
-  	minlength: 2,
-    required: true
-  },
-  message: {
-    minlength: 2,
-    required: true
-  }
+	name: {
+		minlength: 2,
+		required: true
+	},
+	email: {
+		required: true,
+		email: true
+	},
+	subject: {
+		minlength: 2,
+		required: true
+	},
+	message: {
+		minlength: 2,
+		required: true
+	}
 },
 highlight: function(label) {
 	$(label).closest('.control-group').addClass('error');

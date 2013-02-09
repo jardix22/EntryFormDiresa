@@ -15,22 +15,9 @@
 				'Red', 
 				array(
 					'id' => 'specialty', 
-					'empty' => '(Seleccione)',
-					'data-html-helper' => 'nesting-select',
-					'data-select' => '#establishment',
-					'data-url' => 'establishments/listId'
+					'empty' => '(Seleccione)'
 					)
 				); 
-			?>
-			<?php echo $this->BtForm->input(
-				'Inscription.establishment_id',
-				'Establecimiento',
-				array(
-					'id' => 'establishment',
-					'disabled' => 'disabled',
-					'empty' => '(Seleccione)',
-					)
-				);  
 			?>
 			<?php echo $this->BtForm->input(
 				'Inscription.profession_id',
