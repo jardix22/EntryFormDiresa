@@ -126,5 +126,30 @@ class InscriptionsController extends AppController
 		$this->set('profession', $this->Profession->find('first', array('conditions' => array('id' => $professionId))));
 
 	}
+	public function peopleListPdf($networkId=null, $professionId=null)
+	{
+		Configure::write('debug',0); // Otherwise we cannot use this method while developing 
+
+		$this->Inscription->unbindModel(array('belongsTo' => array('Network', 'Profession', 'Phase')));
+
+		$networkId = base64_decode($networkId);
+		$professionId = base64_decode($professionId);
+
+		$this->Inscription->unbindModel(array('belongsTo' => array('Network', 'Profession', 'Phase')));
+
+		$inscriptions = $this->Inscription->find(
+					'all',
+					array(
+							'conditions' => array( 'network_id' => $networkId, 'profession_id' => $professionId),
+							'recursive' => 1
+						)
+			);
+		
+		$this->set('inscriptions', $inscriptions);
+		$this->set('network', $this->Network->find('first', array('conditions' => array('id' => $networkId), 'recursive' => -1)));
+		$this->set('profession', $this->Profession->find('first', array('conditions' => array('id' => $professionId))));
+
+		$this->layout = 'bootstrap/pdf'; //this will use the pdf.ctp layout 
+		$this->response->type('pdf');
+	}
 }
-?>

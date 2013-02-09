@@ -31,8 +31,7 @@ $tcpdf->Cell(120,7, "Nombres y Apellidos" ,'LT',0,'C', 1);
 $tcpdf->Cell(0,7, "DNI" ,'LTR',0,'C', 1); 
 
 $tcpdf->Ln();
-
-$tcpdf->SetFont($textfont,'',10); 
+$tcpdf->SetFont($textfont,'B',10); 
 
 $i = 0;
 foreach ($students as $student){	
