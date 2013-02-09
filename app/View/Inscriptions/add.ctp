@@ -7,8 +7,10 @@
 		<fieldset>
 
 			<h5>Datos de Boucher</h5>
+			
 			<?php echo $this->BtForm->input('Inscription.voucher_number', 'Num. Voucher'); ?>
 			<h5>Datos de Inscripción</h5>
+			
 			<?php echo $this->BtForm->input('Inscription.phase_id', 'Fase', array('empty' => '(Seleccione uno)')); ?>
 			<?php echo $this->BtForm->input(
 				'Inscription.network_id',
@@ -35,7 +37,7 @@
 			<?php echo $this->BtForm->input('Person.names', 'Nombre'); ?>
 			<?php echo $this->BtForm->input('Person.lf_name', 'Apellido Paterno'); ?>
 			<?php echo $this->BtForm->input('Person.lm_name', 'Apellido Materno'); ?>
-			<?php echo $this->BtForm->date('Person.birtdate', 'Fecha de Nacimiento'); ?>
+			<?php echo $this->BtForm->date('Person.birthdate', 'Fecha de Nacimiento'); ?>
 			<?php echo $this->BtForm->input('Person.address', 'Direccion'); ?>
 			<?php echo $this->BtForm->input('Person.email', 'Correo Electronico'); ?>
 			<?php echo $this->BtForm->input('Person.cellphone', 'Num. Celular', array('maxlength'=>'9')); ?>

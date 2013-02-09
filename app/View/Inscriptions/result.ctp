@@ -1,8 +1,3 @@
-<pre>
-	<?php print_r($inscription); ?>
-</pre>
-
-
 <h4>Datos de Boucher</h4>
 <table class="table table-bordered detail-table">
 
@@ -37,15 +32,7 @@
 				Red
 			</td>
 			<td>
-				<?php echo $inscription['Phase']['name']; ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Establecimiento
-			</td>
-			<td>
-				<?php echo $inscription['Establishment']['name']; ?>
+				<?php echo $inscription['Network']['name']; ?>
 			</td>
 		</tr>
 		<tr>
