@@ -4,6 +4,6 @@
 */
 class Vacancy extends AppModel
 {
-	public $belongsTo = array('profession', );
+	public $belongsTo = array('Profession', 'Establishment');
 }
 ?>

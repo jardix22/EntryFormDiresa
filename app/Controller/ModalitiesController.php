@@ -4,9 +4,6 @@
 	*/
 	class ModalitiesController extends AppController
 	{
-		//public $viewClass = 'Json';
-		
-		public $components = array('RequestHandler');
 
 		public function beforeFilter()
 		{
@@ -37,6 +34,7 @@
 					'recursive' => 0
 				)
 			);
+			
 			$this->set('modality', $modality);
 			$this->set('__serialize', 'modality');
 		}
