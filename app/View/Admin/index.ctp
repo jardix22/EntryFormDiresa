@@ -41,14 +41,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php $i = 0; ?>
-							<?php foreach ($network['Establishment'] as $establishment): ?>
+							<?php foreach ($professions as $key =>  $profession): ?>
 								<tr>
 									<td>
-										<?php echo $i = $i+1 ?>
+										<?php echo $key+1; ?>
 									</td>
 									<td>
-										<?php echo $establishment['name']; ?>
+										<?php echo $profession['Profession']['name']; ?>
 									</td>
 									<!--
 									<td>
@@ -56,8 +55,9 @@
 									</td>
 									-->
 									<td>
-										<?php echo $this->Html->Link('Ver', array('controller'=>'inscriptions', 'action' => 'peopleList',  base64_encode($establishment['id']))); ?>	
-									</td>									
+										<?php echo $this->Html->Link('Ver', array('controller'=>'inscriptions', 'action' => 'peopleList',  base64_encode($network['Network']['id']), base64_encode($profession['Profession']['id']))); ?>	
+									</td>
+									
 								</tr>
 							<?php endforeach; ?>
 						</tbody>

@@ -30,7 +30,6 @@
 					)
 				);  
 			?>
-
 			
 			<h5>Datos Personales</h5>
 			<?php echo $this->BtForm->input('Person.document', 'DNI', array('maxlength'=>'8')); ?>

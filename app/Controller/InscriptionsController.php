@@ -106,20 +106,24 @@ class InscriptionsController extends AppController
 		$this->response->type('pdf');
 	}
 
-	public function peopleList($establishmentId=null)
+	public function peopleList($networkId=null, $professionId=null)
 	{
-		$establishmentId = base64_decode($establishmentId);
+		$networkId = base64_decode($networkId);
+		$professionId = base64_decode($professionId);
+
+		$this->Inscription->unbindModel(array('belongsTo' => array('Network', 'Profession', 'Phase')));
 
 		$inscriptions = $this->Inscription->find(
 					'all',
 					array(
-							'conditions' => array( 'establishment_id' => $establishmentId),
+							'conditions' => array( 'network_id' => $networkId, 'profession_id' => $professionId),
 							'recursive' => 1
 						)
 			);
 		
 		$this->set('inscriptions', $inscriptions);
-
+		$this->set('network', $this->Network->find('first', array('conditions' => array('id' => $networkId), 'recursive' => -1)));
+		$this->set('profession', $this->Profession->find('first', array('conditions' => array('id' => $professionId))));
 
 	}
 }

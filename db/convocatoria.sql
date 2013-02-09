@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-02-09 02:11:00
+Date: 2013-02-09 15:14:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -495,30 +495,30 @@ INSERT INTO `establishments` VALUES ('537', 'P.S. ACARI', '11');
 DROP TABLE IF EXISTS `inscriptions`;
 CREATE TABLE `inscriptions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `establishment_id` int(11) NOT NULL,
   `profession_id` int(11) NOT NULL,
   `person_id` int(11) NOT NULL,
   `phase_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `voucher_number` varchar(20) DEFAULT NULL,
+  `network_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `boucher_number_UNIQUE` (`voucher_number`),
-  KEY `fk_inscription_establishments1_idx` (`establishment_id`),
   KEY `fk_inscription_professions1_idx` (`profession_id`),
   KEY `fk_inscriptions_phases1_idx` (`phase_id`),
   KEY `fk_inscription_people1_idx` (`person_id`),
-  CONSTRAINT `fk_inscription_establishments1` FOREIGN KEY (`establishment_id`) REFERENCES `establishments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_inscription_people1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  KEY `fk_inscriptions_networks1_idx` (`network_id`),
+  CONSTRAINT `fk_inscriptions_networks1` FOREIGN KEY (`network_id`) REFERENCES `networks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscriptions_phases1` FOREIGN KEY (`phase_id`) REFERENCES `phases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_inscription_people1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscription_professions1` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of inscriptions
 -- ----------------------------
-INSERT INTO `inscriptions` VALUES ('5', '133', '2', '1', '1', '2013-02-09 07:35:12', '2013-02-09 07:35:12', '12312312312');
-INSERT INTO `inscriptions` VALUES ('7', '134', '2', '2', '1', '2013-02-09 07:42:09', '2013-02-09 07:42:09', '123890809809');
+INSERT INTO `inscriptions` VALUES ('9', '40', '5', '1', '2013-02-09 20:34:46', '2013-02-09 20:34:46', '12312312312', '1');
+INSERT INTO `inscriptions` VALUES ('10', '40', '6', '1', '2013-02-09 21:03:51', '2013-02-09 21:03:51', '809809312312', '1');
 
 -- ----------------------------
 -- Table structure for `networks`
@@ -528,7 +528,7 @@ CREATE TABLE `networks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of networks
@@ -544,6 +544,7 @@ INSERT INTO `networks` VALUES ('8', 'RED PUNO');
 INSERT INTO `networks` VALUES ('9', 'RED SAN ROMAN');
 INSERT INTO `networks` VALUES ('10', 'RED SANDIA');
 INSERT INTO `networks` VALUES ('11', 'RED YUNGUYO');
+INSERT INTO `networks` VALUES ('12', 'HOSP. REG. \"MNB\" PUNO\r\n');
 
 -- ----------------------------
 -- Table structure for `people`
@@ -562,14 +563,13 @@ CREATE TABLE `people` (
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `document_UNIQUE` (`document`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of people
 -- ----------------------------
-INSERT INTO `people` VALUES ('1', '89786777', 'eduardo cosso panca', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 07:35:12');
-INSERT INTO `people` VALUES ('2', '12312389', 'eduardo cosso panca', 'Ramos', 'Arpasi', null, 'Av. Floral 2343', 'jardix22@gmail.com', '957787601', '2013-02-09 07:42:09');
-INSERT INTO `people` VALUES ('3', '89897823', 'adreian', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 08:05:31');
+INSERT INTO `people` VALUES ('5', '89786777', 'eduardo', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 20:34:46');
+INSERT INTO `people` VALUES ('6', '89786719', 'walterq', 'Mamani', 'Mamani', '2013-01-01', 'Humachiri', 'jardix22@gmail.com', '957787601', '2013-02-09 21:03:51');
 
 -- ----------------------------
 -- Table structure for `phases`
@@ -595,15 +595,54 @@ CREATE TABLE `professions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of professions
 -- ----------------------------
-INSERT INTO `professions` VALUES ('1', 'Odontologo');
-INSERT INTO `professions` VALUES ('2', 'P2');
-INSERT INTO `professions` VALUES ('3', 'P3');
-INSERT INTO `professions` VALUES ('4', 'P4');
+INSERT INTO `professions` VALUES ('1', 'MEDICO GENERAL');
+INSERT INTO `professions` VALUES ('2', 'MEDICO NEUMOLOGO');
+INSERT INTO `professions` VALUES ('3', 'MEDICO CARDIOLOGO');
+INSERT INTO `professions` VALUES ('4', 'MEDICO NEUROLOGO');
+INSERT INTO `professions` VALUES ('5', 'MEDICO GASTROENTEROLOGO');
+INSERT INTO `professions` VALUES ('6', 'MEDICO DERMATOLOGO');
+INSERT INTO `professions` VALUES ('7', 'MEDICO NEFROLOGO');
+INSERT INTO `professions` VALUES ('8', 'MEDICO ONCOLOGO');
+INSERT INTO `professions` VALUES ('9', 'MEDICO PSIQUIATRA');
+INSERT INTO `professions` VALUES ('10', 'MEDICO CIRUJANO GENERAL');
+INSERT INTO `professions` VALUES ('11', 'MEDICO TRAUMATOLOGO ORTOPEDISTA');
+INSERT INTO `professions` VALUES ('12', 'MEDICO OTORRINOLARINGOLOGO');
+INSERT INTO `professions` VALUES ('13', 'MEDICO OFTALMOLOGO');
+INSERT INTO `professions` VALUES ('14', 'MEDICO UROLOGO');
+INSERT INTO `professions` VALUES ('15', 'MEDICO CIRUJANO ONCOLOGO');
+INSERT INTO `professions` VALUES ('16', 'MEDICO PATOLOGO');
+INSERT INTO `professions` VALUES ('17', 'MEDICO OTROS CIRUGIA');
+INSERT INTO `professions` VALUES ('18', 'MEDICO PEDIATRA');
+INSERT INTO `professions` VALUES ('19', 'MEDICO GINECO-OBSTETRA');
+INSERT INTO `professions` VALUES ('20', 'MEDICO EPIDEMIOLOGO');
+INSERT INTO `professions` VALUES ('21', 'MEDICO RADIOLOGO');
+INSERT INTO `professions` VALUES ('22', 'MEDICO OTRAS ESPECIALIDADES');
+INSERT INTO `professions` VALUES ('23', 'OBSTETRIZ');
+INSERT INTO `professions` VALUES ('24', 'NUTRICIONISTA');
+INSERT INTO `professions` VALUES ('25', 'ODONTOLOGO');
+INSERT INTO `professions` VALUES ('26', 'QUIMICO FARMACEUTICO');
+INSERT INTO `professions` VALUES ('27', 'RADIOTERAPEUTA');
+INSERT INTO `professions` VALUES ('28', 'PSICOLOGO');
+INSERT INTO `professions` VALUES ('29', 'ENFERMERA (O)');
+INSERT INTO `professions` VALUES ('30', 'TECNOLOGO MEDICO');
+INSERT INTO `professions` VALUES ('31', 'BIOLOGO');
+INSERT INTO `professions` VALUES ('32', 'VETERINARIO');
+INSERT INTO `professions` VALUES ('33', 'ASISTENTA SOCIAL');
+INSERT INTO `professions` VALUES ('34', 'TECNICOS DE SALUD');
+INSERT INTO `professions` VALUES ('35', 'TECNICAS DE ENFERMERIA');
+INSERT INTO `professions` VALUES ('36', 'TECNICO DE LABORATORIO');
+INSERT INTO `professions` VALUES ('37', 'TECNICO RADIOLOGO');
+INSERT INTO `professions` VALUES ('38', 'TECNICO DENTAL');
+INSERT INTO `professions` VALUES ('39', 'TECNICO SANEAMIENTO AMBIENTAL');
+INSERT INTO `professions` VALUES ('40', 'AUXILIARES DE SALUD');
+INSERT INTO `professions` VALUES ('41', 'OTROS TECNICOS Y AUXILIARES');
+INSERT INTO `professions` VALUES ('42', 'OTROS NO ESPECIFICADOS');
+INSERT INTO `professions` VALUES ('43', 'ESTADISTICO');
 
 -- ----------------------------
 -- Table structure for `users`

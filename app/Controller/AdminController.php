@@ -1,22 +1,25 @@
-<?php
+	<?php
 /**
 * AdminController
 */
 class AdminController extends AppController
 {
 
-	public $uses = array("Phase", "Network","Establishment", "Inscription");
+	public $uses = array("Phase", "Network","Profession", "Inscription");
 
 	public function index()
 	{
 		//$this->set("current_phase", $this->Phase->find("all", array("conditions" => array("state" => 1), "recursive" => 0 )));
 		$this->set("current_phase", $this->Phase->find("first"));
 		
-		$networks = $this->Network->find("all", array("recursive" => 1 ));
+		$networks = $this->Network->find("all", array("recursive" => 0 ));
 
 		$this->set("networks", $networks);
 	
 		$countStudent = array();
+
+
+		$this->set('professions', $this->Profession->find('all'));
 		
 /*
 		foreach ($networks as $network) {
