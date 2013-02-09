@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-02-09 01:52:50
+Date: 2013-02-09 02:06:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -512,7 +512,7 @@ CREATE TABLE `inscriptions` (
   CONSTRAINT `fk_inscription_people1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscriptions_phases1` FOREIGN KEY (`phase_id`) REFERENCES `phases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscription_professions1` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of inscriptions
@@ -562,13 +562,14 @@ CREATE TABLE `people` (
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `document_UNIQUE` (`document`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of people
 -- ----------------------------
 INSERT INTO `people` VALUES ('1', '89786777', 'eduardo cosso panca', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 07:35:12');
 INSERT INTO `people` VALUES ('2', '12312389', 'eduardo cosso panca', 'Ramos', 'Arpasi', null, 'Av. Floral 2343', 'jardix22@gmail.com', '957787601', '2013-02-09 07:42:09');
+INSERT INTO `people` VALUES ('3', '89897823', 'adreian', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 08:05:31');
 
 -- ----------------------------
 -- Table structure for `phases`

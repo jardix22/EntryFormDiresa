@@ -17,14 +17,9 @@ class InscriptionsController extends AppController
 	{
 		// POST
 		if ($this->request->is('post')) {
-			/*
-			echo "<pre>";
-			print_r($this->request->data);
-			echo "</pre>";
-			*/
 			
 			$this->loadModel('Person');
-
+			
 			if ($this->Person->save($this->request->data['Person'])) {
 
 				$this->request->data['Inscription']['person_id'] = $this->Person->id;
@@ -44,41 +39,46 @@ class InscriptionsController extends AppController
 				}
 				
 			} else {
-				
+				$this->Session->setFlash(
+						array('message' => 'Ha ocurrido un error, vuelve a intentarlo.','type' => 'alert-error'),
+						'bootstrap_message'
+					);
 			}
-		// GET 
-		}else{
-
-			$this->set('phases', $this->Phase->find(
-					'list', 
-					array(
-						//'conditions' => array('Phase.state' => 1),
-						'order' => array('name' => 'asc'), 
-						'recursive' => 0
-					)
-				)
-			);
-
-			$this->set('networks', $this->Network->find(
-					'list', 
-					array(
-						//'conditions' => array('Phase.state' => 1),
-						'order' => array('name' => 'asc'), 
-						'recursive' => 0
-					)
-				)
-			);
-
-			$this->set('professions', $this->Profession->find(
-					'list', 
-					array(
-						//'conditions' => array('Phase.state' => 1),
-						'order' => array('name' => 'asc'), 
-						'recursive' => 0
-					)
-				)
-			);
 		}
+
+
+		// GET 
+
+		$this->set('phases', $this->Phase->find(
+				'list', 
+				array(
+					//'conditions' => array('Phase.state' => 1),
+					'order' => array('name' => 'asc'), 
+					'recursive' => 0
+				)
+			)
+		);
+
+		$this->set('networks', $this->Network->find(
+				'list', 
+				array(
+					//'conditions' => array('Phase.state' => 1),
+					'order' => array('name' => 'asc'), 
+					'recursive' => 0
+				)
+			)
+		);
+
+		$this->set('professions', $this->Profession->find(
+				'list', 
+				array(
+					//'conditions' => array('Phase.state' => 1),
+					'order' => array('name' => 'asc'), 
+					'recursive' => 0
+				)
+			)
+		);
+		
 	}
 
 	public function result($id = null)
