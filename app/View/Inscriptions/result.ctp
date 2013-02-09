@@ -1,4 +1,20 @@
+<div class="page-header">
+		<h1>
+			Ficha de Inscripción
+		</h1>
+		<div class="pull-right">
+			<div class="tool-buttons-content">
+				<div class="tool-button">
+					<a class="toolTips" href=<?php echo $this->Html->url(array("action" => "resultPdf", base64_encode($inscription['Inscription']['id']))); ?> target="_blank" rel="tooltip" data-placement="top" data-original-title="PDF" > PDF <i class="icon-file"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
 <h4>Datos de Boucher</h4>
+
 <table class="table table-bordered detail-table">
 
 	<tbody>
@@ -118,3 +134,5 @@
 
 	</tbody>
 </table>
+
+

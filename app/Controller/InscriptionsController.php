@@ -88,7 +88,7 @@ class InscriptionsController extends AppController
 		$this->set('inscription', $inscription);
 	}
 
-	public function result_pdf($id = null)
+	public function resultPdf($id = null)
 	{
 		if (!$id) 
 		{ 
@@ -99,7 +99,7 @@ class InscriptionsController extends AppController
 		Configure::write('debug',0); // Otherwise we cannot use this method while developing 
 
 		$id = base64_decode($id);
-		$inscription =  $this->inscription->find('first', array('conditions' => array('id' => $id), 'recursive' => 1));
+		$inscription =  $this->Inscription->find('first', array('conditions' => array('Inscription.id' => $id), 'recursive' => 1));
 		$this->set('inscription', $inscription);
 		
 		$this->layout = 'bootstrap/pdf'; //this will use the pdf.ctp layout 
