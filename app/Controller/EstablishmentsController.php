@@ -22,7 +22,9 @@ class EstablishmentsController extends AppController
 			array(
 				'conditions' => array('Establishment.network_id' => $id),
 				'fields' => array('Establishment.id','Establishment.name'),
-				'recursive' => 1
+				'recursive' => 1,
+				'order' => array('name' => 'desc')
+
 			)
 		);
 

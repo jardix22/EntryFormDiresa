@@ -12,11 +12,10 @@
 		<?php echo $this->Html->css('/theme/css/master'); ?>
 
 		
-		<?php echo $this->Html->script('jquery-1.8.2'); ?>
+		<?php echo $this->Html->script('/plugins/jquery/jquery-1.8.2'); ?>
+
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap.min'); ?>
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap-datepicker'); ?>
-		<?php echo $this->Html->script('/bootstrap/js/jqBootstrapValidation'); ?>
-
 
 		<?php echo $this->Html->script('/js/me/tools'); ?>
 
@@ -51,26 +50,7 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="span3">
-					<ul class="nav nav-list bs-docs-sidenav affix">
-						<?php if ( $this->request->params['controller'] == 'home'): ?>
-							<li class="active" >
-								<a href=<?php echo $this->Html->url(array('controller' => 'home', 'action' => 'index')); ?>>
-	                        		<i class="icon-chevron-right"></i> Inicio
-	                        	</a>
-							</li>
-						<?php else: ?>	
-							<li>
-								<a href=<?php echo $this->Html->url(array('controller' => 'home', 'action' => 'index')); ?>>
-	                        		<i class="icon-chevron-right"></i> Inicio
-	                        	</a>
-							</li>
-						<?php endif; ?>
-
-						
-					</ul>
-				</div>
-				<div class="span9"><?php echo $this->fetch('content'); ?></div>                
+				<div class="span12"><?php echo $this->fetch('content'); ?></div>                
 			</div>
 		</div>
 

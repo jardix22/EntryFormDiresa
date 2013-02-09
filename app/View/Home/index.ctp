@@ -54,7 +54,7 @@
 									<td>
 										<?php echo $this->Html->Link('Ver', array('controller'=>'SpecialtyMemberships', 'action' => 'showList', $specialty['id'])); ?>	
 									</td>									
-								</tr>
+								</tr>		
 							<?php endforeach; ?>
 						</tbody>
 					</table>

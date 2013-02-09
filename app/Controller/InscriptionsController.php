@@ -53,7 +53,7 @@ class InscriptionsController extends AppController
 				'list', 
 				array(
 					//'conditions' => array('Phase.state' => 1),
-					'order' => array('name' => 'asc'), 
+					'order' => array('name' => 'asc'),
 					'recursive' => 0
 				)
 			)
@@ -88,7 +88,7 @@ class InscriptionsController extends AppController
 		$this->set('inscription', $inscription);
 	}
 
-	public function print_pdf($id = null)
+	public function result_pdf($id = null)
 	{
 		if (!$id) 
 		{ 
@@ -104,6 +104,23 @@ class InscriptionsController extends AppController
 		
 		$this->layout = 'bootstrap/pdf'; //this will use the pdf.ctp layout 
 		$this->response->type('pdf');
+	}
+
+	public function peopleList($establishmentId=null)
+	{
+		$establishmentId = base64_decode($establishmentId);
+
+		$inscriptions = $this->Inscription->find(
+					'all',
+					array(
+							'conditions' => array( 'establishment_id' => $establishmentId),
+							'recursive' => 1
+						)
+			);
+		
+		$this->set('inscriptions', $inscriptions);
+
+
 	}
 }
 ?>
