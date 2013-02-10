@@ -36,7 +36,7 @@
 			<?php echo $this->BtForm->input('Person.names', 'Nombre'); ?>
 			<?php echo $this->BtForm->input('Person.lf_name', 'Apellido Paterno'); ?>
 			<?php echo $this->BtForm->input('Person.lm_name', 'Apellido Materno'); ?>
-			<?php echo $this->BtForm->date('Person.birthdate', 'Fecha de Nacimiento'); ?>
+			<?php echo $this->BtForm->date('Person.birthdate', 'Fecha de Nacimiento', array('data-date-viewmode'=>"years")); ?>
 			<?php echo $this->BtForm->input('Person.address', 'Direccion'); ?>
 			<?php echo $this->BtForm->input('Person.email', 'Correo Electronico'); ?>
 			<?php echo $this->BtForm->input('Person.cellphone', 'Num. Celular', array('maxlength'=>'9')); ?>

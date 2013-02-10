@@ -236,4 +236,6 @@ tbody tr td.center{
 	text-transform: capitalize;
 }
 
-
+.form-actions{
+	background-color: #fff;
+}
