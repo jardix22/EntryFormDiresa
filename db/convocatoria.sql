@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50516
 File Encoding         : 65001
 
-Date: 2013-02-09 15:14:51
+Date: 2013-02-09 19:36:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -500,7 +500,7 @@ CREATE TABLE `inscriptions` (
   `phase_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
-  `voucher_number` varchar(20) DEFAULT NULL,
+  `voucher_number` varchar(10) DEFAULT NULL,
   `network_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `boucher_number_UNIQUE` (`voucher_number`),
@@ -508,17 +508,19 @@ CREATE TABLE `inscriptions` (
   KEY `fk_inscriptions_phases1_idx` (`phase_id`),
   KEY `fk_inscription_people1_idx` (`person_id`),
   KEY `fk_inscriptions_networks1_idx` (`network_id`),
+  CONSTRAINT `fk_inscription_people1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_inscriptions_networks1` FOREIGN KEY (`network_id`) REFERENCES `networks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscriptions_phases1` FOREIGN KEY (`phase_id`) REFERENCES `phases` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_inscription_people1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_inscription_professions1` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of inscriptions
 -- ----------------------------
-INSERT INTO `inscriptions` VALUES ('9', '40', '5', '1', '2013-02-09 20:34:46', '2013-02-09 20:34:46', '12312312312', '1');
-INSERT INTO `inscriptions` VALUES ('10', '40', '6', '1', '2013-02-09 21:03:51', '2013-02-09 21:03:51', '809809312312', '1');
+INSERT INTO `inscriptions` VALUES ('9', '40', '5', '1', '2013-02-09 20:34:46', '2013-02-09 20:34:46', '1234567890', '1');
+INSERT INTO `inscriptions` VALUES ('10', '40', '6', '1', '2013-02-09 21:03:51', '2013-02-09 21:03:51', '1234567891', '1');
+INSERT INTO `inscriptions` VALUES ('11', '40', '7', '1', '2013-02-09 22:59:53', '2013-02-09 22:59:53', '1234567892', '1');
+INSERT INTO `inscriptions` VALUES ('12', '40', '8', '1', '2013-02-10 01:11:35', '2013-02-10 01:11:35', '1234567893', '1');
 
 -- ----------------------------
 -- Table structure for `networks`
@@ -544,7 +546,7 @@ INSERT INTO `networks` VALUES ('8', 'RED PUNO');
 INSERT INTO `networks` VALUES ('9', 'RED SAN ROMAN');
 INSERT INTO `networks` VALUES ('10', 'RED SANDIA');
 INSERT INTO `networks` VALUES ('11', 'RED YUNGUYO');
-INSERT INTO `networks` VALUES ('12', 'HOSP. REG. \"MNB\" PUNO\r\n');
+INSERT INTO `networks` VALUES ('12', 'HOSP. REG. \"MNB\" PUNO');
 
 -- ----------------------------
 -- Table structure for `people`
@@ -563,13 +565,15 @@ CREATE TABLE `people` (
   `created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `document_UNIQUE` (`document`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of people
 -- ----------------------------
 INSERT INTO `people` VALUES ('5', '89786777', 'eduardo', 'Ramos', 'Arpasi', null, 'AV. tORRE 2', 'jardix22@gmail.com', '957787601', '2013-02-09 20:34:46');
 INSERT INTO `people` VALUES ('6', '89786719', 'walterq', 'Mamani', 'Mamani', '2013-01-01', 'Humachiri', 'jardix22@gmail.com', '957787601', '2013-02-09 21:03:51');
+INSERT INTO `people` VALUES ('7', '80989023', 'joseph', 'Ramos', 'Arpasi', '2013-01-01', 'AV. tORRE 22', 'jardix22@gmail.com', '957787601', '2013-02-09 22:59:53');
+INSERT INTO `people` VALUES ('8', '45478823', 'joseph', 'Mamani', 'Arpasi', '2013-02-18', 'AV. tORRE 22', 'jardix22@gmail.com', '957787601', '2013-02-10 01:11:35');
 
 -- ----------------------------
 -- Table structure for `phases`
@@ -675,7 +679,7 @@ CREATE TABLE `vacancies` (
   KEY `fk_vacancies_professions1_idx` (`profession_id`),
   CONSTRAINT `fk_vacancies_establishments1` FOREIGN KEY (`establishment_id`) REFERENCES `establishments` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_vacancies_professions1` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of vacancies

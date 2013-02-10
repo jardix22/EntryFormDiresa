@@ -4,7 +4,7 @@ $(document).ready(function () {
 	$.validator.addMethod("uniqueUserName", function(value, element) {
 	$.ajax({
 			type: "POST",
-			 url: "php/get_save_status.php",
+			 url: "php/checkdocument.php",
 			data: "checkUsername="+value,
 			dataType:"html",
 		 success: function(msg)
