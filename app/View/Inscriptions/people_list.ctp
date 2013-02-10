@@ -5,7 +5,6 @@
       		<div class="pull-right">    			
       			<?php echo $this->Html->link('Regresar', array('controller' => 'admin', 'action' => 'index'), array('class' => 'btn')); ?>
       			<a class="btn btn-primary" href=<?php echo $this->Html->url(array("action" => "peopleListPdf", base64_encode($network['Network']['id']), base64_encode($profession['Profession']['id']))); ?> target="_blank" > Imprimir</a>
-      			<a class="btn btn-danger" href=<?php echo $this->Html->url(array("action" => "peopleListPdf", base64_encode($network['Network']['id']), base64_encode($profession['Profession']['id']))); ?> target="_blank" > Pdf </a>
       		</div>
       </h1>
 

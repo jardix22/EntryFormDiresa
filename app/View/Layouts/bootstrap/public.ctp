@@ -31,7 +31,7 @@
 			<div class="container">
 				<div class="logo-wrap pull-left">
 					<div class="logo-img">
-						<a href="">
+						<a href=<?php echo $this->Html->url('/'); ?>>
 							<?php echo $this->Html->image('/theme/img/logo.png'); ?>
 						</a>
 					</div>
@@ -49,9 +49,10 @@
 			</div>
 			<div class="header-bottom"></div>
 		</header>
-			
+		
+		
 		<div class="container">
-
+			<?php echo $this->Session->flash(); ?>
 			<div class="row">
 				<div class="span12"><?php echo $this->fetch('content'); ?></div>                
 			</div>

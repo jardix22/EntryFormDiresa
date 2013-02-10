@@ -7,12 +7,14 @@
 		<?php echo $this->Html->css('/bootstrap/css/bootstrap'); ?>
 		<?php echo $this->Html->css('/bootstrap/css/bootstrap-responsive'); ?>
 		<?php echo $this->Html->css('/bootstrap/css/bootstrap-datepicker'); ?>
-		<?php echo $this->Html->css('/bootstrap/css/me.module'); ?>
 		
+		<?php echo $this->Html->css('/plugins/dataTable/css/jquery.dataTables'); ?>		
+		<?php echo $this->Html->css('/bootstrap/css/me.module'); ?>
 		<?php echo $this->Html->css('/theme/css/master'); ?>
 
 		
 		<?php echo $this->Html->script('/plugins/jquery/jquery-1.8.2'); ?>
+		<?php echo $this->Html->script('/plugins/dataTable/js/jquery.dataTables.min'); ?>
 
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap.min'); ?>
 		<?php echo $this->Html->script('/bootstrap/js/bootstrap-datepicker'); ?>
@@ -25,7 +27,7 @@
 			<div class="container">
 				<div class="logo-wrap pull-left">
 					<div class="logo-img">
-						<a href="">
+						<a href=<?php echo $this->Html->url('/admin'); ?>>
 							<?php echo $this->Html->image('/theme/img/logo.png'); ?>
 						</a>
 					</div>
