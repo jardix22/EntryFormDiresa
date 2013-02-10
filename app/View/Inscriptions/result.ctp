@@ -2,7 +2,7 @@
 		<h1>
 			Ficha de Inscripción
 			<div class="pull-right">	
-				<a class="btn" href=<?php echo $this->Html->url(array("action" => "resultPdf", base64_encode($inscription['Inscription']['id']))); ?> target="_blank" > PDF <i class="icon-file"></i></a>
+				<a class="btn btn-primary" href=<?php echo $this->Html->url(array("action" => "resultPdf", base64_encode($inscription['Inscription']['id']))); ?> target="_blank" > IMPRIMIR <i class="icon-file"></i></a>
 
 			</div>
 		</h1>
