@@ -216,3 +216,26 @@
 tbody tr td.center{
 	text-align: center;
 }
+.report-table thead tr th:nth-child(1){
+	width: 3%
+}
+.report-table thead tr th:nth-child(2), .report-table tbody tr td:nth-child(2){
+	width: 15%;
+	text-align:center;
+}
+.report-table thead tr th:nth-child(3), .report-table tbody tr td:nth-child(3){
+	width: 10%;
+	text-align:center;
+}
+.report-table thead tr th:nth-child(4), .report-table tbody tr td:nth-child(4){
+	width: 35%;
+	text-align:center;
+	text-transform: capitalize;
+}
+.report-table thead tr th:nth-child(5), .report-table tbody tr td:nth-child(5){
+	width: 35%;
+	text-align:center;
+	text-transform: capitalize;
+}
+
+

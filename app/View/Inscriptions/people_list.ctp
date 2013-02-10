@@ -11,10 +11,10 @@
       </h1>
 
 </div>
-<table class="table table-bordered ">
+<table class="table table-bordered report-table">
 	<thead>
 		<tr>
-			<th>num</th>
+			<th>Nun</th>
 			<th>Numero Voucher</th>
 			<th>DNI</th>
 			<th>Apellidos</th>
