@@ -2,23 +2,22 @@
 
 /* Logo Module */
 .logo-wrap{
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 /* header toolbar Module */
 .header-toolbar{
 	float: right;
 	border-left: 1px solid #FAFAFA;
-	border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
-
 .user-profile{
-	padding: 0px 20px 0px 15px;
+	padding: 5px 5px 10px 5px;
+	
 }
 .user-avatar{
 	float: left;
-	padding: 15px 10px 15px 0px;
+	padding: 15px 0px 0px 0px;
 }
 .user-avatar img{
 	height: 25px;
@@ -29,7 +28,7 @@
 	font-weight: bold;
 	font-size: 0.9em;
 	float: left;
-	padding: 10px 0px 0px 0px;
+	padding: 10px 5px 0px 5px;
 }
 .user-info span{
 	color: #999;
@@ -43,8 +42,7 @@
 
 .header-button-container{
 	border-left: 1px solid #FAFAFA;
-	border-left: 1px solid rgba(0, 0, 0, 0.2);
-	padding: 10px 0px 10px 15px;
+	padding: 15px 5px 0px 5px;
 }
 
 .header-button-container > ul{
